@@ -9,7 +9,7 @@ const Tools = () => {
 
     // const { data: tools, isLoading, refetch } = useQuery('tools', () => fetch('https://damp-island-71958.herokuapp.com/service').then(res => res.json()))
 
-    const { data: tools, isLoading, refetch } = useQuery('users', () => fetch('tools.json').then(res => res.json()))
+    const { data: tools, isLoading, refetch } = useQuery('users', () => fetch('https://tranquil-tundra-16871.herokuapp.com/tools').then(res => res.json()))
 
     
     if(isLoading){

@@ -4,7 +4,7 @@ import image from '../../assets/image/placeholder.png'
 
 const Banner = () => {
     return (
-        <div className=' bg-base-200'>
+        <div className=' my-10 bg-base-200'>
             <Carousel>
                 <Carousel.Item>
                     <img className='h-[500px] w-full'  src={image} alt="" />

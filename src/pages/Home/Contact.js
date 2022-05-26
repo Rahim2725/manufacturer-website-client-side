@@ -2,7 +2,7 @@ import React from 'react';
 
 const Contact = () => {
     return (
-        <div className='bg-secondary my-20 sm:p-3 lg:p-10'>
+        <div className='bg-base-300 my-20 sm:p-3 lg:p-10'>
             <h2 className="text-3xl mb-3 text-white font-bold text-center">Contact Me</h2>
             <form >
                 <input type="text" placeholder="Email" className=" mb-3 input input-bordered input-primary block mx-auto w-full max-w-xs" />

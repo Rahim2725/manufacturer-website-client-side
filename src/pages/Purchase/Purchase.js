@@ -6,8 +6,10 @@ const Purchase = () => {
     const { purchaseId } = useParams();
     console.log(purchaseId);
 
-    const {data}  = useQuery('tool', () => fetch(`http://localhost:5000/${purchaseId}`).then(res => res.json()))
+    const {data: tool, isLoading }  = useQuery('tool', () => fetch(`http://localhost:5000/tools/${purchaseId}`).then(res => res.json()))
 
+
+    console.log(tool)
 
     return (
         <div className='my-20'>

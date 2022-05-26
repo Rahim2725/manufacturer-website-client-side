@@ -5,9 +5,6 @@ import Review from './Review';
 
 const Reviews = () => {
   
-
-    // const { data: tools, isLoading, refetch } = useQuery('tools', () => fetch('https://damp-island-71958.herokuapp.com/service').then(res => res.json()))
-
     const { data: reviews, isLoading, refetch } = useQuery('users', () => fetch('tools.json').then(res => res.json()))
 
     

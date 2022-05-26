@@ -5,7 +5,7 @@ import Navbar from './pages/Sherad/Navbar';
 
 function App() {
   return (
-    <div>
+    <div className='mx-12'>
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>

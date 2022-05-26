@@ -4,15 +4,11 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
     const manuItems = <>
     <li><Link to='/home'>Home</Link></li>
-    <li><Link to='/home'>Home</Link></li>
-    <li><Link to='/home'>Home</Link></li>
-    <li><Link to='/home'>Home</Link></li>
-    <li><Link to='/home'>Home</Link></li>
-    <li><Link to='/home'>Home</Link></li>
+    <li><Link to='/home'>About</Link></li>
     </>
     return (
         <div>
-            <div class="navbar bg-base-200">
+            <div class="navbar bg-base-100">
                 <div class="navbar-start">
                     <div class="dropdown">
                         <label tabindex="0" class="btn btn-ghost lg:hidden">

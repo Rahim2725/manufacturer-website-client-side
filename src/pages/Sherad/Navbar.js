@@ -1,10 +1,30 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
+import Loading from './Loading';
 
 const Navbar = () => {
+
+    const [user, loading,] = useAuthState(auth);
+
+    if (loading) {
+        return <Loading></Loading>
+    }
+    const logout = () => {
+        signOut(auth);
+        localStorage.removeItem('accessToken');
+    }
+
     const manuItems = <>
-    <li><Link to='/home'>Home</Link></li>
-    <li><Link to='/login'>Login</Link></li>
+        <li><Link to='/home'>Home</Link></li>
+        <li><Link to='/home'>Blog</Link></li>
+        <li><Link to='/home'>My Portfolio</Link></li>
+        {
+            user && <li><Link to="/dashboard">Dashboard</Link></li>
+        }
+        {user ? <button onClick={logout} >Sign Out</button> : <li><Link to='/login'>Login</Link></li>}
     </>
     return (
         <div className='mx-12'>
@@ -22,7 +42,7 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
-                    {manuItems} 
+                        {manuItems}
                     </ul>
                 </div>
             </div>

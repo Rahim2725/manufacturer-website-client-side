@@ -1,30 +1,61 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Purchase = () => {
     const { purchaseId } = useParams();
     const [tool, setTool] = useState({})
+
     const user = {
         name: "abdur rahim",
         email: "rahim@gamil.com"
     };
 
-    useEffect(() => {
-        fetch(`http://localhost:5000/tools/${purchaseId}`)
-        .then(res => res.json())
-        .then(data => {
-            setTool(data)
-        })
-    },[])
-
-
     const { name, available_quantity, price } = tool;
 
+    useEffect(() => {
+        fetch(`http://localhost:5000/tools/${purchaseId}`)
+            .then(res => res.json())
+            .then(data => {
+                setTool(data)
+            })
+    }, [user])
+
+
+
+
     // use rect from hook
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        console.log(data)
+        const { adders, phone, quantity } = data;
+
+        const totalPrice = quantity * price;
+
+        const purchase = {
+            userName: user.name,
+            email: user.email,
+            name: name,
+            price: totalPrice,
+            adders: adders,
+            phone: phone,
+        }
+
+        fetch('http://localhost:5000/purchase', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(purchase)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
+        toast('Your Purchase is Done')
+        reset()
+
+
     };
 
 
@@ -34,29 +65,29 @@ const Purchase = () => {
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl">
                     <div className="card-body">
                         <h1 className="text-3xl text-center  font-bold"> Purchase Tool</h1>
-                        <form  onSubmit={handleSubmit(onSubmit)}>
+                        <form onSubmit={handleSubmit(onSubmit)}>
 
-                            <div class="form-control mb-3">
+                            <div className="form-control mb-3">
                                 <input type="text"
                                     value={user?.name}
                                     disabled
                                     className="input input-bordered w-full"
-                                    {...register("userName")} />
+                                />
                             </div>
 
-                            <div class="form-control mb-3">
+                            <div className="form-control mb-3">
                                 <input type="email"
                                     value={user?.email}
                                     disabled
                                     className="input input-bordered"
-                                    {...register("email")} />
+                                />
                             </div>
-                            <div class="form-control">
+                            <div className="form-control">
                                 <input type="text"
                                     value={name}
                                     disabled
                                     className="input input-bordered w-full "
-                                    {...register("name")} />
+                                />
                             </div>
 
                             <div className="form-control">
@@ -77,7 +108,7 @@ const Purchase = () => {
                                             message: 'Minimum Order Quantity  100'
                                         },
                                         max: {
-                                            value: `${available_quantity}` ,
+                                            value: `${available_quantity}`,
                                             message: 'This Quantity is Not available'
                                         }
                                     })}

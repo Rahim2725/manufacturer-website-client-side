@@ -10,9 +10,7 @@ import useToken from '../../hooks/useToken';
 const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
-
-    let from = location.state?.from?.pathname || "/";
-
+    
     const [
         signInWithEmailAndPassword,
         user,
@@ -36,22 +34,22 @@ const Login = () => {
         reset()
     }
 
-    
     const [token] = useToken(user || gUser);
-    
+
+
+    let from = location.state?.from?.pathname || "/";
     useEffect(() => {
-        if(token){
+        if (token) {
             navigate(from, { replace: true });
         }
     }, [token, navigate, from])
 
+
     let signInError;
 
-  
     if (error || gError) {
         signInError = <p className='text-red-500'> <small>{gError?.message} {error?.message}</small></p>
     }
-
     if (loading || gLoading) {
         return <Loading></Loading>
     }

@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 
 const Purchase = () => {
     const { purchaseId } = useParams();
-    const [tool, setTool] = useState({})
+    const [tool, setTool] = useState({});
+    const [userName, setUserName] = useState('');
 
-    const user = {
-        name: "abdur rahim",
-        email: "rahim@gamil.com"
-    };
+
+    const [user] = useAuthState(auth)
 
     const { name, available_quantity, price } = tool;
 
@@ -20,7 +21,7 @@ const Purchase = () => {
             .then(data => {
                 setTool(data)
             })
-    }, [user])
+    }, [user, purchaseId])
 
 
 
@@ -33,7 +34,7 @@ const Purchase = () => {
         const totalPrice = quantity * price;
 
         const purchase = {
-            userName: user.name,
+            userName: user.displayName,
             email: user.email,
             name: name,
             price: totalPrice,
@@ -50,13 +51,12 @@ const Purchase = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                toast('Your Purchase is Done')
+                reset()
             })
-        toast('Your Purchase is Done')
-        reset()
-
 
     };
+
 
 
     return (
@@ -69,7 +69,7 @@ const Purchase = () => {
 
                             <div className="form-control mb-3">
                                 <input type="text"
-                                    value={user?.name}
+                                    value={user?.displayName}
                                     disabled
                                     className="input input-bordered w-full"
                                 />

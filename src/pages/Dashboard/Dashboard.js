@@ -6,10 +6,8 @@ import useAdmin from '../../hooks/useAdmin';
 
 const Dashboard = () => {
 
-    // const [user] = useAuthState(auth);
-    const user = true ;
-    // const [admin] = useAdmin(user);
-    const admin = true ;
+    const [user] = useAuthState(auth);
+    const [admin] = useAdmin(user);
 
     return (
         <div class="drawer drawer-mobile">
@@ -26,19 +24,19 @@ const Dashboard = () => {
                     {/* <!-- Sidebar content here --> */}
                     <li><Link to="/dashboard">My Profile</Link></li>
                     {
-                        user && 
+                        !admin && 
                         <>
                         <li><Link to="/dashboard/myOrder">My Order</Link></li>
                         <li><Link to="/dashboard/review">Add Review</Link></li>
                         </>
                     }
                     {
-                        user && 
+                      admin && 
                         <>
                         <li><Link to="/dashboard/addProduct">Add Product</Link></li>
                         <li><Link to="/dashboard/manageProduct">Manage Product</Link></li>
                         <li><Link to="/dashboard/manageOrder">Manage Order</Link></li>
-                        <li><Link to="/dashboard/addProduct">Make Admin</Link></li>
+                        <li><Link to="/dashboard/manageUsers">Manage Users</Link></li>
                         </>
                     }
                 </ul>

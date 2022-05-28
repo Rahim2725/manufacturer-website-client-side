@@ -11,7 +11,7 @@ const ManageOrders = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
 
-    const { data: orders, isLoading, refetch } = useQuery(['users', user], () => fetch(`http://localhost:5000/purchases`, {
+    const { data: orders, isLoading, refetch } = useQuery(['orders', user], () => fetch(`http://localhost:5000/purchases`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -33,7 +33,7 @@ const ManageOrders = () => {
 
     return (
         <div>
-            <h1>My order: {orders.length}</h1>
+            <h1>Mange All Orders order: {orders?.length}</h1>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     <thead>

@@ -29,7 +29,10 @@ const ManageOrderRaw = ({ order, refetch }) => {
 
         if (sureDelete) {
             fetch(`https://tranquil-tundra-16871.herokuapp.com/purchase/${id}`, {
-                method: "DELETE"
+                method: "DELETE",
+               headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
             })
                 .then(res => res.json())
                 .then(data => {

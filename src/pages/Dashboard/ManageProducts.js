@@ -4,11 +4,12 @@ import { useQuery } from 'react-query';
 import { Navigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Sherad/Loading';
+import Product from './Product';
 
 
 const ManageProducts = () => {
 
-    const { data: products, isLoading, refetch } = useQuery(['products',], () => fetch(`http://localhost:5000/purchases`, {
+    const { data: products, isLoading, refetch } = useQuery(['products',], () => fetch(`http://localhost:5000/tools`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -37,20 +38,17 @@ const ManageProducts = () => {
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Product Name</th>
-                            <th>Email </th>
-                            <th>Phone </th>
-                            <th>Adders</th>
                             <th>Price</th>
-                            <th></th>
+                            <th>Quantity</th>
+                            <th>Remove Product</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                    {
+                        products.map(product => <Product
+                        key={product._id}
+                        product={product}></Product>)
+                    }
                     </tbody>
                 </table>
             </div>

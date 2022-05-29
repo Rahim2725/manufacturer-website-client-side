@@ -28,28 +28,28 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
         <Route path='/purchase/:purchaseId' element={
-        <RequireAuth>
-          <Purchase></Purchase>
-        </RequireAuth>
-      }></Route>
+          <RequireAuth>
+            <Purchase></Purchase>
+          </RequireAuth>
+        }></Route>
         <Route path='/dashboard' element={
-        <RequireAuth>
-          <Dashboard></Dashboard>
-        </RequireAuth>
-      }>
+          <RequireAuth>
+            <Dashboard></Dashboard>
+          </RequireAuth>
+        }>
 
-        {/* user link us able  */}
-        <Route index element={<MyProfile/>}> </Route>
-        <Route path='myOrder' element={<MyOrder/>}></Route>
-        <Route path='addReview' element={<AddReview/>}></Route>
+          {/* user link us able  */}
+          <Route index element={<MyProfile />}> </Route>
+          <Route path='myOrder' element={<MyOrder />}></Route>
+          <Route path='addReview' element={<AddReview />}></Route>
 
-        {/* admin use this link */}
-      <Route path='addProduct' element={<AddProduct/>}></Route>
-        <Route path='manageOrder' element={<ManageOrders/>}></Route>
-        <Route path='mangeProduct' element={<ManageProducts/>}></Route>
-        <Route path='manageUsers' element={<ManageUsers/>}></Route>
+          {/* admin use this link */}
+          <Route path='addProduct' element={<AddProduct />}></Route>
+          <Route path='manageOrder' element={<ManageOrders />}></Route>
+          <Route path='manageProduct' element={<ManageProducts />}></Route>
+          <Route path='manageUsers' element={<ManageUsers />}></Route>
 
-      </Route>
+        </Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer></ToastContainer>

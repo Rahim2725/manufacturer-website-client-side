@@ -1,17 +1,30 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useQuery } from 'react-query';
+import { Navigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 import Loading from '../Sherad/Loading';
 import UserRow from './UserRaw';
 
 
 const ManageUsers = () => {
-    
+
     const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/users', {
         method: 'GET',
-        headers:{
-            authorization : `Bearer ${localStorage.getItem('accessToken')}`
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
-    }).then(res => res.json()))
+    }).then(res => {
+        if (res.status === 401 || res.status === 403) {
+            signOut(auth);
+            localStorage.removeItem('accessToken')
+            Navigate('/')
+        }
+        else {
+
+            return res.json()
+        }
+    }))
 
     console.log(users)
     if (isLoading) {
@@ -27,16 +40,15 @@ const ManageUsers = () => {
                         <tr>
                             <th></th>
                             <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             users.map(user => <UserRow
-                            key={user._id}
-                            user={user}
-                            refetch={refetch}
+                                key={user._id}
+                                user={user}
+                                refetch={refetch}
                             ></UserRow>)
                         }
                     </tbody>

@@ -1,7 +1,8 @@
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
@@ -16,8 +17,22 @@ const Purchase = () => {
     const { name, available_quantity, price } = tool;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/tools/${purchaseId}`)
-            .then(res => res.json())
+        fetch(`http://localhost:5000/tools/${purchaseId}`, {
+            method: 'GET',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    signOut(auth);
+                    localStorage.removeItem('accessToken')
+                    Navigate('/')
+                } else {
+                    return res.json()
+                }
+
+            })
             .then(data => {
                 setTool(data)
             })
@@ -46,7 +61,6 @@ const Purchase = () => {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
 
             },
             body: JSON.stringify(purchase)
@@ -155,7 +169,7 @@ const Purchase = () => {
                                 </label>
                             </div>
 
-                            <input className='btn btn-primary  mt-2 p-0 w-full' type="submit" value="Purchase Naw" />
+                            <input disabled={!name} className='btn btn-primary mt-2 p-0 w-full' type="submit" value="Purchase Naw" />
                         </form>
                     </div>
                 </div>

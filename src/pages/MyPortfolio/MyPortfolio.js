@@ -1,11 +1,11 @@
 import React from 'react';
-import porfile from '../../assets/image/profile.png'
-import site1 from '../../assets/image/website/site1.png'
-import site2 from '../../assets/image/website/site2.png'
-import site3 from '../../assets/image/website/site3.png'
-import facebook from '../../assets/image/logo/facebook.png'
-import github from '../../assets/image/logo/github.png'
-import linkedin from '../../assets/image/logo/linkedin.png'
+import facebook from '../../assets/image/logo/facebook.png';
+import github from '../../assets/image/logo/github.png';
+import linkedin from '../../assets/image/logo/linkedin.png';
+import porfile from '../../assets/image/profile.png';
+import site1 from '../../assets/image/website/site1.png';
+import site2 from '../../assets/image/website/site2.png';
+import site3 from '../../assets/image/website/site3.png';
 
 
 const MyPortfolio = () => {
@@ -13,8 +13,8 @@ const MyPortfolio = () => {
         <section className='mx-52'>
             <div className='flex justify-center items-center  mb-10' >
                 <div className=''>
-                    <div class="avatar">
-                        <div class="w-24 mr-6 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                    <div className="avatar">
+                        <div className="w-24 mr-6 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                             <img src={porfile} alt="" />
                         </div>
                     </div>
@@ -64,20 +64,20 @@ const MyPortfolio = () => {
             <div className='mb-16'>
                 <h1 className="text-2xl text-primary font-bold">My Beast Project</h1>
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
-                    <a target="_blank" href="https://warehouse-managment-27bf4.web.app/"> <img className='mt-6 w-30 h-36 border-2' src={site1} alt="" /></a>
-                    <a target="_blank" href="https://independent-service-prov-6d7cc.web.app/"> <img className='mt-6 w-30 h-36 border-2' src={site2} alt="" /></a>
-                    <a target="_blank" href="https://convention-center-rahim.netlify.app/"> <img className='mt-6 w-30 h-36 border-2' src={site3} alt="" /></a>
+                    <a target="_blank" href="https://warehouse-managment-27bf4.web.app/" rel="noreferrer"> <img className='mt-6 w-30 h-36 border-2' src={site1} alt="" /></a>
+                    <a target="_blank" href="https://independent-service-prov-6d7cc.web.app/" rel="noreferrer"> <img className='mt-6 w-30 h-36 border-2' src={site2} alt="" /></a>
+                    <a target="_blank" href="https://convention-center-rahim.netlify.app/" rel="noreferrer"> <img className='mt-6 w-30 h-36 border-2' src={site3} alt="" /></a>
                 </div>
             </div>
 
             <div className='mb-6 '>
                 <h1 className="text-2xl text-primary font-bold text-center">Contact Me </h1>
                 <div className='flex justify-center items-center mt-2'>
-                    <a target="_blank" href="https://www.facebook.com/MdAbdurRahim25/">
+                    <a target="_blank" href="https://www.facebook.com/MdAbdurRahim25/" rel="noreferrer">
                          <img className='h-12 w-12 mr-6' src={facebook} alt="" /></a>
-                    <a target="_blank" href="https://github.com/Rahim2725">
+                    <a target="_blank" href="https://github.com/Rahim2725" rel="noreferrer">
                         <img className='h-12 w-12 ' src={github} alt="" /></a>
-                    <a target="_blank" href="https://www.linkedin.com/in/rahimwebdeveloper/">
+                    <a target="_blank" href="https://www.linkedin.com/in/rahimwebdeveloper/" rel="noreferrer">
                          <img className='h-12 w-12 ml-6' src={linkedin} alt="" /></a>
                 </div>
 

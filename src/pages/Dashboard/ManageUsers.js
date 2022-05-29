@@ -9,7 +9,7 @@ import UserRow from './UserRaw';
 
 const ManageUsers = () => {
 
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/users', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://tranquil-tundra-16871.herokuapp.com/users', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -26,7 +26,6 @@ const ManageUsers = () => {
         }
     }))
 
-    console.log(users)
     if (isLoading) {
         return <Loading></Loading>
     }

@@ -18,7 +18,7 @@ const Purchase = () => {
     } = tool;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/tools/${purchaseId}`, {
+        fetch(`https://tranquil-tundra-16871.herokuapp.com/tools/${purchaseId}`, {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -58,7 +58,7 @@ const Purchase = () => {
             phone: phone,
         }
 
-        fetch('http://localhost:5000/purchase', {
+        fetch('https://tranquil-tundra-16871.herokuapp.com/purchase', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

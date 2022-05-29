@@ -18,7 +18,7 @@ const AddReview = ({ review }) => {
             rating: rating,
         }
 
-        fetch('http://localhost:5000/review', {
+        fetch('https://tranquil-tundra-16871.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -28,7 +28,6 @@ const AddReview = ({ review }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 toast('Your Review is Add')
                 event.target.reset();
             })
@@ -37,15 +36,15 @@ const AddReview = ({ review }) => {
 
     return (
         <div className=' flex justify-center items-center'>
-            <div class="card w-96 bg-base-100 shadow-xl">
-                <div class="card-body">
-                    <h2 class=" text-2xl text-center">Add Review</h2>
+            <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card-body">
+                    <h2 className=" text-2xl text-center">Add Review</h2>
                     <form onSubmit={addProduct}  >
 
                         <textarea placeholder='Review' className=' input-primary w-full p-1 border-2 border-primary' name="description" id="" cols="30" rows="8" ></textarea>
                       
 
-                        <input type="number" placeholder="Rating" name='rating' class="input mb-3 block input-bordered input-primary w-full max-w-xs" required />
+                        <input type="number" placeholder="Rating" name='rating' className="input mb-3 block input-bordered input-primary w-full max-w-xs" required />
 
                         <input className='btn btn-primary w-full' type="submit" value="Submit" />
                     </form>

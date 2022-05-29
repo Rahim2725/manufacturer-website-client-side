@@ -11,7 +11,7 @@ const MyOrder = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
 
-    const { data: orders, isLoading, refetch } = useQuery(['orders', user], () => fetch(`http://localhost:5000/purchase/${user.email}`, {
+    const { data: orders, isLoading, refetch } = useQuery(['orders', user], () => fetch(`https://tranquil-tundra-16871.herokuapp.com/purchase/${user.email}`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -34,8 +34,8 @@ const MyOrder = () => {
     return (
         <div>
             <h1>My order: {orders.length}</h1>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th>Name</th>

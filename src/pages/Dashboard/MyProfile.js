@@ -13,8 +13,8 @@ const MyProfile = () => {
                 <hr className='w-3/4' />
                 <div className='flex justify-center items-center'>
                     <div>
-                        <div class="avatar m-6">
-                            <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                        <div className="avatar m-6">
+                            <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                 <img src={photoURL} alt="" />
                             </div>
                         </div>

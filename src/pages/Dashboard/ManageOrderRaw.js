@@ -5,7 +5,7 @@ const ManageOrderRaw = ({ order, refetch }) => {
     const { name, price, userName, phone, email, position, _id, adders } = order;
 
     const Update = id => {
-        fetch(`http://localhost:5000/purchase/${id}`, {
+        fetch(`https://tranquil-tundra-16871.herokuapp.com/purchase/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -28,7 +28,7 @@ const ManageOrderRaw = ({ order, refetch }) => {
 
 
         if (sureDelete) {
-            fetch(`http://localhost:5000/purchase/${id}`, {
+            fetch(`https://tranquil-tundra-16871.herokuapp.com/purchase/${id}`, {
                 method: "DELETE",
                headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const OrderRow = ({ order, refetch }) => {
     const { name, price, userName, position, _id } = order;
@@ -7,12 +8,16 @@ const OrderRow = ({ order, refetch }) => {
     const handleDelete = id => {
         const sure = window.confirm('Are You Sure');
         if (sure) {
-            fetch(`http://localhost:5000/purchase/${id}`, {
-                method: "DELETE"
+            fetch(`https://tranquil-tundra-16871.herokuapp.com/purchase/${id}`, {
+                method: "DELETE",
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
+                
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
+                    toast('Your Delete is done')
                     refetch()
                 })
         }

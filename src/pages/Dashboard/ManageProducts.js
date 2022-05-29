@@ -9,7 +9,7 @@ import Product from './Product';
 
 const ManageProducts = () => {
 
-    const { data: products, isLoading, refetch } = useQuery(['products',], () => fetch(`http://localhost:5000/tools`, {
+    const { data: products, isLoading, refetch } = useQuery(['products',], () => fetch(`https://tranquil-tundra-16871.herokuapp.com/tools`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -33,8 +33,8 @@ const ManageProducts = () => {
     return (
         <div>
             <h1>My product: {products?.length}</h1>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th>Name</th>

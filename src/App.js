@@ -20,6 +20,7 @@ import Navbar from './pages/Sherad/Navbar';
 import MyPortfolio from './pages/MyPortfolio/MyPortfolio';
 import NotFound from './pages/NotFoun/NotFound';
 import Blog from './pages/Blog.js/Blog';
+import RequireAdmin from './pages/Login/RequireAdmin';
 
 function App() {
   return (
@@ -49,10 +50,27 @@ function App() {
           <Route path='review' element={<AddReview />}></Route>
 
           {/* admin use this link */}
-          <Route path='addProduct' element={<AddProduct />}></Route>
-          <Route path='manageOrder' element={<ManageOrders />}></Route>
-          <Route path='manageProduct' element={<ManageProducts />}></Route>
-          <Route path='manageUsers' element={<ManageUsers />}></Route>
+          <Route path='addProduct' element={
+            <RequireAdmin>
+              <AddProduct />
+            </RequireAdmin>
+          }>
+          </Route>
+          <Route path='manageOrder' element={
+            <RequireAdmin>
+              <ManageOrders />
+            </RequireAdmin>
+          }></Route>
+          <Route path='manageProduct' element={
+            <RequireAdmin>
+              <ManageProducts />
+            </RequireAdmin>
+          }></Route>
+          <Route path='manageUsers' element={
+            <RequireAdmin>
+              <ManageUsers />
+            </RequireAdmin>
+          }></Route>
 
         </Route>
         <Route path='*' element={<NotFound></NotFound>} > </Route>

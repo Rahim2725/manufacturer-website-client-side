@@ -1,18 +1,21 @@
 import React from 'react';
 
-const OrderRow = ({order, refetch}) => {
-const {name, price, userName, position, _id } = order ;
+const OrderRow = ({ order, refetch }) => {
+    const { name, price, userName, position, _id } = order;
 
 
     const handleDelete = id => {
-        fetch(`https://tranquil-tundra-16871.herokuapp.com/purchase/${id}`, {
-            method: "DELETE"
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            refetch()
-        })
+        const sure = window.confirm('Are You Sure');
+        if (sure) {
+            fetch(`https://tranquil-tundra-16871.herokuapp.com/purchase/${id}`, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    refetch()
+                })
+        }
     }
 
     return (
@@ -20,8 +23,8 @@ const {name, price, userName, position, _id } = order ;
             <td>{userName}</td>
             <td>{name}</td>
             <td>${price}</td>
-            <td>{position === 'deliver' ? 'Deliver' : 'Pending...' }</td>
-            <td>{position !== 'deliver' && <button onClick={() => handleDelete(_id)} className='btn btn-sm btn-secondary '>Delete</button> }</td>
+            <td>{position === 'deliver' ? 'Deliver' : 'Pending...'}</td>
+            <td>{position !== 'deliver' && <button onClick={() => handleDelete(_id)} className='btn btn-sm btn-secondary '>Delete</button>}</td>
 
         </tr>
     );

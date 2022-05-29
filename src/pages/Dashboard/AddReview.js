@@ -18,7 +18,7 @@ const AddReview = ({ review }) => {
             rating: rating,
         }
 
-        fetch('http://localhost:5000/review', {
+        fetch('https://tranquil-tundra-16871.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -29,7 +29,7 @@ const AddReview = ({ review }) => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                toast('Yout Review is Add')
+                toast('Your Review is Add')
                 event.target.reset();
             })
 

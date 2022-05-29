@@ -5,7 +5,7 @@ import Tool from './Tool';
 
 const Tools = () => {
 
-    const { data: tools, isLoading} = useQuery('users', () => fetch('https://tranquil-tundra-16871.herokuapp.com/tools').then(res => res.json()))
+    const { data: tools, isLoading} = useQuery('users', () => fetch('http://localhost:5000/tools').then(res => res.json()))
 
     
     if(isLoading){

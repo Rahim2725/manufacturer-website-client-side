@@ -7,7 +7,7 @@ const OrderRow = ({ order, refetch }) => {
     const handleDelete = id => {
         const sure = window.confirm('Are You Sure');
         if (sure) {
-            fetch(`https://tranquil-tundra-16871.herokuapp.com/purchase/${id}`, {
+            fetch(`http://localhost:5000/purchase/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())

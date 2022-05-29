@@ -5,15 +5,7 @@ import Review from './Review';
 
 const Reviews = () => {
   
-    const { data: reviews, isLoading} = useQuery('reviews', () => fetch('https://tranquil-tundra-16871.herokuapp.com/review',{
-        method: 'GET',
-        headers: {
-            authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        }
-    }
-    ).then(res => res.json()))
-
-    console.log(reviews)
+    const { data: reviews, isLoading} = useQuery('reviews', () => fetch('http://localhost:5000/review').then(res => res.json()))
 
     if(isLoading){
         return <Loading></Loading>

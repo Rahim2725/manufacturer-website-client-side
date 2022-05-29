@@ -6,7 +6,7 @@ const UserRow = ({ user, refetch }) => {
 
     console.log(user)
     const makeAdmin = () => {
-        fetch(`https://tranquil-tundra-16871.herokuapp.com/user/admin/${email}`, {
+        fetch(`http://localhost:5000/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -30,8 +30,6 @@ const UserRow = ({ user, refetch }) => {
             <th>1</th>
             <td>{user.email}</td>
             <td>{role !== 'admin' && <button onClick={makeAdmin} className="btn btn-xs">Make Admin</button>}
-            </td>
-            <td><button className="btn btn-xs">Remove User</button>
             </td>
         </tr>
     );

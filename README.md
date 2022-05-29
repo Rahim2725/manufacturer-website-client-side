@@ -1,12 +1,17 @@
-# Getting Started with Create React App
+# HOSE REPAIR TOOLS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was live site link(https://manufacturer-327ba.web.app/).
 
-## Available Scripts
+## Site use npm
+1 tailwind
+2 react router 
+3 form hooks
+4 firebase
+5 tost use
+6 requite auth use korchi
+ 
 
-In the project directory, you can run:
 
-### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.

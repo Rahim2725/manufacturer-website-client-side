@@ -8,9 +8,6 @@ import Loading from '../Sherad/Loading';
 
 const SignUp = () => {
     const navigate = useNavigate();
-    const location = useLocation();
-
-    let from = location.state?.from?.pathname || "/";
 
     const [
         createUserWithEmailAndPassword,
@@ -45,9 +42,9 @@ const SignUp = () => {
 
     useEffect(() => {
         if (token) {
-            navigate(from, { replace: true });
+            navigate('/home');
         }
-    }, [token, navigate, from])
+    }, [token, navigate,])
 
     if (error || gError || upError) {
         signInError = <p className='text-red-500'> <small>{gError?.message} {error?.message} {upError?.message}</small></p>

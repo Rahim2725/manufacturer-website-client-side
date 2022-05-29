@@ -5,9 +5,10 @@ import Review from './Review';
 
 const Reviews = () => {
   
-    const { data: reviews, isLoading, refetch } = useQuery('users', () => fetch('tools.json').then(res => res.json()))
+    const { data: reviews, isLoading} = useQuery('reviews', () => fetch('https://tranquil-tundra-16871.herokuapp.com/review').then(res => res.json()))
 
-    
+    console.log(reviews)
+
     if(isLoading){
         return <Loading></Loading>
     }

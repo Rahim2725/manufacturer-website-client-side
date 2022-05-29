@@ -18,6 +18,7 @@ import Purchase from './pages/Purchase/Purchase';
 import Footer from './pages/Sherad/Footer';
 import Navbar from './pages/Sherad/Navbar';
 import MyPortfolio from './pages/MyPortfolio/MyPortfolio';
+import NotFound from './pages/NotFoun/NotFound';
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
           <Route path='manageUsers' element={<ManageUsers />}></Route>
 
         </Route>
+        <Route path='*' element={<NotFound></NotFound>} > </Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer></ToastContainer>

@@ -23,13 +23,17 @@ const ManageOrderRaw = ({ order, refetch }) => {
 
 
     const Delete = id => {
-        if ('add') {
+        const sureDelete = window.confirm('Are You Sure ');
+
+
+
+        if (sureDelete) {
             fetch(`https://tranquil-tundra-16871.herokuapp.com/purchase/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
                 .then(data => {
-                    toast('Your ')
+                    toast('Your Delete Done')
                     refetch();
                 })
         }

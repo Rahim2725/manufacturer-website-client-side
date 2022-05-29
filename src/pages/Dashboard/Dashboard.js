@@ -15,8 +15,6 @@ const Dashboard = () => {
             <div class="drawer-content lg:mt-6 lg:ml-6">
                 <Outlet />
 
-                <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
-
             </div>
             <div class="drawer-side">
                 <label for="my-drawer-2" class="drawer-overlay"></label>

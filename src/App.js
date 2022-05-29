@@ -43,7 +43,7 @@ function App() {
           {/* user link us able  */}
           <Route index element={<MyProfile />}> </Route>
           <Route path='myOrder' element={<MyOrder />}></Route>
-          <Route path='addReview' element={<AddReview />}></Route>
+          <Route path='review' element={<AddReview />}></Route>
 
           {/* admin use this link */}
           <Route path='addProduct' element={<AddProduct />}></Route>

@@ -17,6 +17,7 @@ import SignUp from './pages/Login/SignUp';
 import Purchase from './pages/Purchase/Purchase';
 import Footer from './pages/Sherad/Footer';
 import Navbar from './pages/Sherad/Navbar';
+import MyPortfolio from './pages/MyPortfolio/MyPortfolio';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
+        <Route path='/myPortfolio' element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
         <Route path='/purchase/:purchaseId' element={

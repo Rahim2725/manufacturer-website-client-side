@@ -47,6 +47,7 @@ const ManageProducts = () => {
                     {
                         products.map(product => <Product
                         key={product._id}
+                        refetch={refetch}
                         product={product}></Product>)
                     }
                     </tbody>

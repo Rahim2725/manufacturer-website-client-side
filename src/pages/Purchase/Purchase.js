@@ -14,7 +14,8 @@ const Purchase = () => {
 
     const [user] = useAuthState(auth)
 
-    const { name, available_quantity, price } = tool;
+    const { name, available_quantity, price, minimum_order_quantity
+    } = tool;
 
     useEffect(() => {
         fetch(`http://localhost:5000/tools/${purchaseId}`, {
@@ -112,7 +113,7 @@ const Purchase = () => {
                                 </label>
                                 <input
                                     type="number"
-                                    placeholder="Minimum Order Quantity  100"
+                                    placeholder={`Minimum Order Quantity ${minimum_order_quantity}`}
                                     className="input input-bordered w-full "
                                     {...register("quantity", {
                                         required: {
@@ -120,8 +121,8 @@ const Purchase = () => {
                                             message: "Quantity is Required"
                                         },
                                         min: {
-                                            value: 100,
-                                            message: 'Minimum Order Quantity  100'
+                                            value: `${minimum_order_quantity}`,
+                                            message: `Minimum Order Quantity  ${minimum_order_quantity}`
                                         },
                                         max: {
                                             value: `${available_quantity}`,

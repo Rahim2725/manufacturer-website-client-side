@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Product = ({product}) => {
+const Product = ({product, refetch}) => {
     const {name, price, available_quantity, _id} = product ;
     const deleteProduct = id => { 
-        fetch(`http://localhost:5000/tools/${id}`, {
+        fetch(`http://localhost:5000/product/${id}`, {
             method: "DELETE",
             headers: {
                 authorization : `Bearer ${localStorage.getItem('accessToken')}`
@@ -11,6 +11,7 @@ const Product = ({product}) => {
         })
         .then(res => res.json())
         .then(data => {
+            refetch();
             console.log(data)
         })
     } 

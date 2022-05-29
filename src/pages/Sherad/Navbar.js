@@ -20,7 +20,7 @@ const Navbar = () => {
     const manuItems = <>
         <li><Link to='/home'>Home</Link></li>
         <li><Link to='/home'>Blog</Link></li>
-        <li><Link to='/home'>My Portfolio</Link></li>
+        <li><Link to='/myPortfolio'>My Portfolio</Link></li>
         {
             user && <li><Link to="/dashboard">Dashboard</Link></li>
         }

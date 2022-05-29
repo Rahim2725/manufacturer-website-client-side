@@ -22,7 +22,7 @@ const AddProduct = () => {
            img: img,
         }
 
-        fetch('http://localhost:5000/product', {
+        fetch('https://tranquil-tundra-16871.herokuapp.com/product', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

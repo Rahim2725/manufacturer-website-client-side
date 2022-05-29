@@ -3,7 +3,7 @@ import React from 'react';
 const Product = ({product, refetch}) => {
     const {name, price, available_quantity, _id} = product ;
     const deleteProduct = id => { 
-        fetch(`http://localhost:5000/product/${id}`, {
+        fetch(`https://tranquil-tundra-16871.herokuapp.com/product/${id}`, {
             method: "DELETE",
             headers: {
                 authorization : `Bearer ${localStorage.getItem('accessToken')}`

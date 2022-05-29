@@ -1,11 +1,11 @@
-import React  from 'react';
+import React from 'react';
 
 const OrderRow = ({order, refetch}) => {
 const {name, price, userName, position, _id } = order ;
 
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/purchase/${id}`, {
+        fetch(`https://tranquil-tundra-16871.herokuapp.com/purchase/${id}`, {
             method: "DELETE"
         })
         .then(res => res.json())

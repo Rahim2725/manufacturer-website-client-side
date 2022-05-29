@@ -31,8 +31,7 @@ const MyPortfolio = () => {
                 <div className='w-1/2 lg:mr-16 '>
                     <h3 className="text-2xl text-primary font-bold">About Me</h3>
                     <p>
-                        <span className='text-xl text-orange-500'>HI THERE ! <br />
-                            I'M Md Abdur Rahim.
+                        <span className='text-xl text-orange-500'>HI THERE ! I'M Md Abdur Rahim.
                         </span> <br /> I am a front End Developer. Using my experience and skills in web design, I can create fast, responsive, and attractive websites which will surely score very much higher in terms of the awesomeness of your intended website visitors.</p>
                 </div>
                 <div className='w-32  h-32 border-2 p-5 text-center'>
@@ -48,12 +47,12 @@ const MyPortfolio = () => {
             <div className='mt-20'>
                 <div><h3 className="text-2xl text-primary font-bold">Education</h3>
                     <div className='flex justify-between  w-full items-center mb-10'>
-                        <div className='lg:w-56 ' >
-                            <h2 className="text-xl font-bold">Front End Development</h2>
-                            <p className="text-sm font-bold">From there I learned about the basics of programming, React, Firebase, Express, Material and much more.</p>
+                        <div className='lg:w-4/6 ' >
+                            <h2 className="text-xl font-bold">Web Developer</h2>
+                            <p className="text-sm font-bold">From there I learned about the basics of programming, Html, Css, Tailwind, Bootstrap, JavaScript, Node js,  React, React Router,  Firebase, Mongodb,  Express, Material and much more.</p>
                         </div>
                         <div className='border-2  border-solid  h-28'></div>
-                        <div className='w-52 mr-20'>
+                        <div className='w-3/6 ml-6'>
                             <h2 className="text-xl font-bold">Academic Education
                             </h2>
                             <p className="text-sm  font-bold">I am in class nine. I am a student of Nithupur Government. Model High School and College</p>
@@ -74,9 +73,12 @@ const MyPortfolio = () => {
             <div className='mb-6 '>
                 <h1 className="text-2xl text-primary font-bold text-center">Contact Me </h1>
                 <div className='flex justify-center items-center mt-2'>
-                    <a target="_blank" href="https://www.facebook.com/MdAbdurRahim25/"> <img className='h-20 w-20 ml-6' src={facebook} alt="" /></a>
-                    <a target="_blank" href="https://github.com/Rahim2725"> <img className='h-20 w-20 ml-6' src={github} alt="" /></a>
-                    <a target="_blank" href="https://www.linkedin.com/in/rahimwebdeveloper/"> <img className='h-20 w-20 ml-6' src={linkedin} alt="" /></a>
+                    <a target="_blank" href="https://www.facebook.com/MdAbdurRahim25/">
+                         <img className='h-12 w-12 mr-6' src={facebook} alt="" /></a>
+                    <a target="_blank" href="https://github.com/Rahim2725">
+                        <img className='h-12 w-12 ' src={github} alt="" /></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/rahimwebdeveloper/">
+                         <img className='h-12 w-12 ml-6' src={linkedin} alt="" /></a>
                 </div>
 
             </div>

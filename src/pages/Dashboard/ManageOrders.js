@@ -11,7 +11,7 @@ const ManageOrders = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
 
-    const { data: orders, isLoading, refetch } = useQuery(['orders', user], () => fetch(`http://localhost:5000/purchases`, {
+    const { data: orders, isLoading, refetch } = useQuery(['orders', user], () => fetch(`https://tranquil-tundra-16871.herokuapp.com/purchases`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
